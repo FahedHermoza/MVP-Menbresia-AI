@@ -1,57 +1,42 @@
 package com.fahed.perupass.ui.theme
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.Color
+import com.fahed.perupass.designsystem.MenbresiaColors
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+/**
+ * Menbresia AI Material 3 dark color scheme.
+ * Maps the design system tokens to Material's color roles.
+ */
+private val MenbresiaDarkColorScheme = darkColorScheme(
+    primary = MenbresiaColors.Primary,
+    onPrimary = Color.Black,
+    background = MenbresiaColors.Background,
+    onBackground = MenbresiaColors.TextPrimary,
+    surface = MenbresiaColors.Surface,
+    onSurface = MenbresiaColors.TextPrimary,
+    surfaceVariant = MenbresiaColors.SurfaceVariant,
+    onSurfaceVariant = MenbresiaColors.TextSecondary,
+    error = MenbresiaColors.Error,
+    onError = Color.White,
+    outline = MenbresiaColors.Border
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
-)
-
+/**
+ * Application theme for Menbresia AI.
+ *
+ * Always uses the dark scheme — the app design is dark-first by spec.
+ * Dynamic color is intentionally disabled to preserve the dark+gold brand identity.
+ */
 @Composable
 fun PeruPassTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
-
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = MenbresiaDarkColorScheme,
         typography = Typography,
         content = content
     )

@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">PeruPass</string>
+    <string name="app_name">Menbresia AI</string>
+
+    <!-- Login Screen -->
+    <string name="login_title">Menbresia AI</string>
+    <string name="login_subtitle">Descubre la vida nocturna y gastronomía de Cusco con beneficios exclusivos.</string>
+    <string name="login_brand_icon_letter">M</string>
+    <string name="login_google_icon_letter">G</string>
+    <string name="login_google_button">Continuar con Google</string>
+    <string name="login_terms">Al continuar, aceptas nuestros Términos de Servicio y Política de Privacidad.</string>
+    <!-- Shared error messages (AppError) -->
+    <string name="error_cancelled">Acción cancelada.</string>
+    <string name="error_network">Sin conexión. Revisa tu internet e intenta de nuevo.</string>
+    <string name="error_generic">Algo salió mal. Intenta de nuevo.</string>
+
+    <!-- Google sign-in button content description -->
+    <string name="login_google_button_description">Botón para iniciar sesión con Google</string>
+
+    <!-- Feed Placeholder -->
+    <string name="feed_coming_soon">Vibe Feed — Próximamente</string>
 </resources>

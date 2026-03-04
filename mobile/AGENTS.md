@@ -144,6 +144,21 @@ _state.update { it.copy(field = value) }
 - **Languages**: Support ES (Spanish) and EN (English) in `strings.xml`
 - **Principles**: Clean Code, DRY, YAGNI, KISS, SOLID
 
+### Comments Philosophy
+
+> **Good naming is the best documentation.** Write code that reads like prose, then only add comments where the code alone cannot explain the *why*.
+
+| Rule | Example |
+|---|---|
+| ✅ Write self-documenting names | `resolveStartDestination()` needs no comment |
+| ✅ Comment the *why*, not the *what* | `// Web client_type: 3 — do NOT use Android client_type: 1` |
+| ✅ One-liner for non-obvious lifecycle/API contracts | `// Set in onResume(), cleared in onPause() to avoid leaks` |
+| ⛔ No KDoc on obvious public APIs | A `data class User(val uid: String, ...)` needs no KDoc |
+| ⛔ No inline comments restating the code | `val isLoggedIn = user != null // checks if user is logged in` |
+| ⛔ No block comments describing entire classes | The class name + method names should do that job |
+
+When in doubt: **delete the comment and improve the name instead.**
+
 ### ⛔ Prohibitions
 
 | Prohibited | Use instead |
