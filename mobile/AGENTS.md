@@ -336,3 +336,38 @@ firestore/
 LinearGradient(90°): #F5D060 → #D4AF37 → #A07820
 Shadow: #D4AF3766, blur 20dp
 ```
+
+## 12. Herramientas y Servicios Externos Configurados
+
+### Firebase MCP (Model Context Protocol)
+
+El servidor **Firebase MCP** (`firebase-mcp-server`) está instalado y configurado en **Gemini CLI** y **Antigravity**. Esto permite interactuar directamente con los servicios de Firebase sin salir del entorno de desarrollo.
+
+| Propiedad | Valor |
+|---|---|
+| **Proyecto vinculado** | MenbresiaAI MVP |
+| **Project ID** | `menbresia-ai-mvp` |
+| **Usuario autenticado** | `hengar079@gmail.com` |
+| **Servicios disponibles** | Auth, Firestore, Storage, Hosting |
+
+**Operaciones disponibles vía MCP:**
+- Consultar y modificar reglas de seguridad (Firestore, Storage, RTDB)
+- Listar y crear apps (Android, iOS, Web)
+- Obtener la configuración del SDK (`google-services.json`)
+- Inicializar servicios de Firebase (`firebase_init`)
+- Gestionar el entorno y proyecto activo
+
+> **Uso**: Si necesitas interactuar con Firebase (por ejemplo, consultar reglas de seguridad o desplegar configuraciones), utiliza las herramientas del MCP de Firebase directamente en lugar de recurrir a la CLI de Firebase manualmente.
+
+### GitHub CLI (`gh`)
+
+La **GitHub CLI** está configurada y autenticada en el entorno local. Puedes utilizarla para automatizar operaciones del repositorio.
+
+**Operaciones disponibles:**
+- Crear y gestionar Issues (`gh issue create`, `gh issue list`)
+- Crear y gestionar Pull Requests (`gh pr create`, `gh pr merge`)
+- Consultar el estado de CI/CD (`gh run list`, `gh run view`)
+- Gestionar releases y tags (`gh release create`)
+- Interactuar con el repositorio remoto (`gh repo view`, `gh repo clone`)
+
+> **Uso**: Prioriza los comandos de `gh` sobre operaciones manuales en la interfaz web de GitHub para mantener la trazabilidad y velocidad del flujo de desarrollo.
