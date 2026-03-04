@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Menbresia AI</string>
+
+    <!-- Login Screen -->
+    <string name="login_title">Menbresia AI</string>
+    <string name="login_subtitle">Discover the nightlife and gastronomy of Cusco with exclusive benefits.</string>
+    <string name="login_brand_icon_letter">M</string>
+    <string name="login_google_icon_letter">G</string>
+    <string name="login_google_button">Continue with Google</string>
+    <string name="login_terms">By continuing, you agree to our Terms of Service and Privacy Policy.</string>
+    <!-- Shared error messages (AppError) -->
+    <string name="error_cancelled">Action cancelled.</string>
+    <string name="error_network">No internet connection. Please try again.</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+
+    <!-- Google sign-in button content description -->
+    <string name="login_google_button_description">Sign in with Google button</string>
+
+    <!-- Feed Placeholder -->
+    <string name="feed_coming_soon">Vibe Feed — Coming soon</string>
+</resources>
