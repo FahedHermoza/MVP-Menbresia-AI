@@ -19,6 +19,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "PeruPass"
+rootProject.name = "MenbresiaAI"
+
 include(":app")
  

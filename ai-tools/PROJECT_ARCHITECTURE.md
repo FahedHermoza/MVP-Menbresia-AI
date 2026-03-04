@@ -100,25 +100,36 @@ app → feature → domain → data → core
 
 ## Dependencias Clave
 
-| Librería | Versión (Estimada) | Propósito |
-|----------|--------------------|-----------|
-| Jetpack Compose | BOM 2025.03.01 | Framework UI declarativo |
-| Kotlin | 2.1.10 | Lenguaje de programación |
-| Dagger Hilt | 2.53.1 | Inyección de dependencias |
-| Firebase Auth | BOM 33.12.0 | Login Social (Google/Facebook) |
-| Firebase Firestore | BOM 33.12.0 | Base de datos serverless (locales, usuarios, membresías) |
-| Firebase Storage | BOM 33.12.0 | Almacenamiento de videos de locales |
-| Firebase Analytics | BOM 33.12.0 | Tracking de eventos y métricas |
-| Firebase Crashlytics | BOM 33.12.0 | Reporte de crashes |
-| ExoPlayer (Media3) | 1.5.0 | Reproductor de video con precarga y caching |
-| Google Play Billing | 7.1.1 | In-App Purchases: suscripciones y pases únicos |
-| Google Maps SDK | 19.0.0 | Geolocalización y cálculo de distancias |
-| Google Play Services Location | 21.3.0 | Geofencing API y GPS |
-| Navigation Compose | 2.8.9 | Navegación entre pantallas |
-| Coil | 2.4.0 | Carga de imágenes (thumbnails de locales) |
-| DataStore | 1.1.4 | Persistencia local de preferencias y caché offline |
-| Room | 2.7.1 | Cache local de datos de locales para modo offline |
-| OkHttp | 4.12.0 | Interceptors para logging y debugging |
+| Librería | Versión | Propósito |
+|----------|---------|----------|
+| **AGP (Android Gradle Plugin)** | `8.9.1` | Sistema de build de Android |
+| **Kotlin** | `2.0.21` | Lenguaje de programación |
+| **Jetpack Compose** | BOM `2025.02.00` | Framework UI declarativo |
+| **AndroidX Core KTX** | `1.16.0` | Extensiones Kotlin para Android |
+| **Lifecycle Runtime KTX** | `2.8.7` | Ciclo de vida y coroutines |
+| **Activity Compose** | `1.10.1` | Integración de Compose con Activity |
+| **Material 3** | vía Compose BOM | Sistema de diseño Material You |
+| **Dagger Hilt** | `2.53.1` | Inyección de dependencias |
+| **Firebase BOM** | `33.10.0` | Plataforma Firebase (versión centralizada) |
+| **Firebase Auth** | vía Firebase BOM | Login Social (Google / Facebook) |
+| **Firebase Firestore** | vía Firebase BOM | Base de datos serverless (locales, usuarios, membresías) |
+| **Firebase Storage** | vía Firebase BOM | Almacenamiento de videos de locales |
+| **Firebase Analytics** | vía Firebase BOM | Tracking de eventos y métricas |
+| **Firebase Crashlytics** | vía Firebase BOM | Reporte de crashes |
+| **Firebase Remote Config** | vía Firebase BOM | Feature flags y configuración dinámica |
+| **Google Services Plugin** | `4.4.2` | Integración de google-services.json |
+| **ExoPlayer (Media3)** | `1.5.0` | Reproductor de video con precarga y caching |
+| **Google Play Billing** | `7.1.1` | In-App Purchases: suscripciones y pases únicos |
+| **Google Maps SDK** | `19.0.0` | Geolocalización y cálculo de distancias |
+| **Google Play Services Location** | `21.3.0` | Geofencing API y GPS |
+| **Navigation Compose** | `2.8.9` | Navegación entre pantallas |
+| **Coil** | `2.7.0` | Carga de imágenes (thumbnails de locales) |
+| **DataStore** | `1.1.4` | Persistencia local de preferencias y caché offline |
+| **Room** | `2.7.1` | Cache local de datos de locales para modo offline |
+| **OkHttp** | `4.12.0` | Interceptors para logging y debugging |
+| **JUnit** | `4.13.2` | Framework de testing unitario |
+| **AndroidX JUnit** | `1.2.1` | Extensiones JUnit para tests en Android |
+| **Espresso** | `3.6.1` | Tests de UI instrumentados |
 
 ---
 

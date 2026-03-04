@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "495440823897",
+    "project_id": "menbresia-ai-mvp",
+    "storage_bucket": "menbresia-ai-mvp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495440823897:android:fcde04842aeb1523c51348",
+        "android_client_info": {
+          "package_name": "com.fahed.perupass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495440823897-0k2g62r5q3h3lqgf55q0oou3qh7f67cg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fahed.perupass",
+            "certificate_hash": "f516a62587d36896864b03355b69245f4d240cad"
+          }
+        },
+        {
+          "client_id": "495440823897-i58mk73v9j7p36mpjk26pb1oibh0m4nu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgHOCUHZFhfrIXflGMPMB1P1wPisf0Qt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "495440823897-i58mk73v9j7p36mpjk26pb1oibh0m4nu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
