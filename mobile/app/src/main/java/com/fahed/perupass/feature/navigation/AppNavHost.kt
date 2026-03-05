@@ -2,11 +2,17 @@ package com.fahed.perupass.feature.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.fahed.perupass.feature.screen.auth.LoginScreen
-import com.fahed.perupass.feature.screen.placeholder.FeedPlaceholderScreen
+import com.fahed.perupass.feature.screen.feed.VibeFeedScreen
+import com.fahed.perupass.feature.screen.placeholder.ExploreScreen
+import com.fahed.perupass.feature.screen.placeholder.PassesScreen
+import com.fahed.perupass.feature.screen.placeholder.ProfileScreen
+import com.fahed.perupass.feature.screen.placeholder.VenueDetailPlaceholderScreen
 
 @Composable
 fun AppNavHost(
@@ -28,12 +34,43 @@ fun AppNavHost(
         }
 
         composable(NavRoutes.FEED) {
-            FeedPlaceholderScreen()
+            VibeFeedScreen(
+                onNavigateToDetail = { venueId ->
+                    navController.navigate(NavRoutes.venueDetail(venueId))
+                },
+                onNavigateToExplore = {
+                    navController.navigate(NavRoutes.EXPLORE)
+                },
+                onNavigateToPasses = {
+                    navController.navigate(NavRoutes.PASSES)
+                },
+                onNavigateToProfile = {
+                    navController.navigate(NavRoutes.PROFILE)
+                }
+            )
         }
+
+        composable(
+            route = NavRoutes.VENUE_DETAIL,
+            arguments = listOf(navArgument("venueId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val venueId = backStackEntry.arguments?.getString("venueId") ?: return@composable
+            VenueDetailPlaceholderScreen(venueId = venueId)
+        }
+
+        composable(NavRoutes.EXPLORE) { ExploreScreen() }
+        composable(NavRoutes.PASSES) { PassesScreen() }
+        composable(NavRoutes.PROFILE) { ProfileScreen() }
     }
 }
 
 object NavRoutes {
     const val LOGIN = "login"
     const val FEED = "feed"
+    const val EXPLORE = "explore"
+    const val PASSES = "passes"
+    const val PROFILE = "profile"
+    const val VENUE_DETAIL = "venue/{venueId}"
+
+    fun venueDetail(venueId: String) = "venue/$venueId"
 }
