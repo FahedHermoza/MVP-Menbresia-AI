@@ -18,4 +18,24 @@
 
     <!-- Feed Placeholder -->
     <string name="feed_coming_soon">Vibe Feed — Coming soon</string>
+
+    <!-- Vibe Feed Screen -->
+    <string name="feed_tab_feed">FEED</string>
+    <string name="feed_tab_explore">EXPLORE</string>
+    <string name="feed_tab_passes">PASSES</string>
+    <string name="feed_tab_profile">PROFILE</string>
+    <string name="feed_open_now">OPEN NOW</string>
+    <string name="feed_like_count">2.4K</string>
+    <string name="feed_like_description">Like</string>
+    <string name="feed_share_description">Share</string>
+    <string name="feed_save_description">Save</string>
+    <string name="feed_benefit_icon_description">Gold benefit</string>
+    <string name="feed_benefit_prefix">GOLD MEMBER: %1$s</string>
+    <string name="feed_venue_image_description">Image of %1$s</string>
+    <string name="feed_error_loading">Error loading venues. Please try again.</string>
+    <string name="feed_empty">No venues available.</string>
+
+    <!-- Placeholder screens -->
+    <string name="placeholder_coming_soon">Coming soon</string>
+    <string name="placeholder_venue_detail">Venue detail: %1$s</string>
 </resources>
