@@ -13,22 +13,61 @@ import androidx.compose.ui.unit.sp
 import com.fahed.perupass.R
 import com.fahed.perupass.designsystem.MenbresiaColors
 
-/**
- * Temporary placeholder for the Vibe Feed screen.
- * Will be replaced by SPEC-002 implementation.
- */
 @Composable
-fun FeedPlaceholderScreen() {
+fun ExploreScreen() {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MenbresiaColors.Background),
+        modifier = Modifier.fillMaxSize().background(MenbresiaColors.Background),
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = stringResource(R.string.feed_coming_soon),
-            color = MenbresiaColors.Primary,
+            text = stringResource(R.string.placeholder_coming_soon),
+            color = MenbresiaColors.TextSecondary,
             fontSize = 18.sp,
+            fontWeight = FontWeight.Medium
+        )
+    }
+}
+
+@Composable
+fun PassesScreen() {
+    Box(
+        modifier = Modifier.fillMaxSize().background(MenbresiaColors.Background),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = stringResource(R.string.placeholder_coming_soon),
+            color = MenbresiaColors.TextSecondary,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Medium
+        )
+    }
+}
+
+@Composable
+fun ProfileScreen() {
+    Box(
+        modifier = Modifier.fillMaxSize().background(MenbresiaColors.Background),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = stringResource(R.string.placeholder_coming_soon),
+            color = MenbresiaColors.TextSecondary,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Medium
+        )
+    }
+}
+
+@Composable
+fun VenueDetailPlaceholderScreen(venueId: String) {
+    Box(
+        modifier = Modifier.fillMaxSize().background(MenbresiaColors.Background),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = stringResource(R.string.placeholder_venue_detail, venueId),
+            color = MenbresiaColors.TextSecondary,
+            fontSize = 16.sp,
             fontWeight = FontWeight.Medium
         )
     }
