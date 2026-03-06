@@ -38,4 +38,20 @@
     <!-- Placeholder screens -->
     <string name="placeholder_coming_soon">Próximamente</string>
     <string name="placeholder_venue_detail">Detalle del local: %1$s</string>
+
+    <!-- Venue Detail Screen -->
+    <string name="detail_venue_image_description">Imagen de %1$s</string>
+    <string name="detail_close_button_description">Cerrar detalle del local</string>
+    <string name="detail_live_badge">LIVE</string>
+    <string name="detail_hours_days">Open: %1$s — %2$s</string>
+    <string name="detail_rating_label">RATING</string>
+    <string name="detail_member_benefits_title">MEMBER BENEFITS</string>
+    <string name="detail_tier_vibe">VIBE MEMBER</string>
+    <string name="detail_tier_gold">GOLD SELECT</string>
+    <string name="detail_tier_black">BLACK FOUNDER</string>
+    <string name="detail_benefit_default">Beneficio exclusivo</string>
+    <string name="detail_geofence_out_of_range">⊙ GEOFENCE ACTIVE — YOU MUST BE NEARBY TO ACTIVATE</string>
+    <string name="detail_geofence_in_range">✓ YOU ARE NEARBY — READY TO ACTIVATE</string>
+    <string name="detail_activate_button_disabled">Get Closer to Activate (Geofence Active)</string>
+    <string name="detail_activate_button_active">ACTIVATE PASS NOW</string>
 </resources>

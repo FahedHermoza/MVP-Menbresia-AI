@@ -62,8 +62,10 @@ fun VibeFeedScreen(
     }
 
     LaunchedEffect(Unit) {
-        viewModel.navigateToDetail.collect { venueId ->
-            onNavigateToDetail(venueId)
+        viewModel.sideEffect.collect { effect ->
+            when (effect) {
+                is FeedSideEffect.NavigateToDetail -> onNavigateToDetail(effect.venueId)
+            }
         }
     }
 

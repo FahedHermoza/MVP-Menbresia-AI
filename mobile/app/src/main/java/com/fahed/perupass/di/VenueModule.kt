@@ -1,8 +1,9 @@
 package com.fahed.perupass.di
 
 import android.content.Context
+import com.fahed.perupass.data.repository.LocationRepositoryImpl
 import com.fahed.perupass.data.repository.VenueRepositoryImpl
-import com.fahed.perupass.data.source.remote.VenueRemoteDataSource
+import com.fahed.perupass.domain.repository.LocationRepository
 import com.fahed.perupass.domain.repository.VenueRepository
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -22,6 +23,10 @@ abstract class VenueModule {
     @Binds
     @Singleton
     abstract fun bindVenueRepository(impl: VenueRepositoryImpl): VenueRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindLocationRepository(impl: LocationRepositoryImpl): LocationRepository
 
     companion object {
 
