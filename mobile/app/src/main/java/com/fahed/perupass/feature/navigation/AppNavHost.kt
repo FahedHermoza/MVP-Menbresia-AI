@@ -55,7 +55,21 @@ fun AppNavHost(
             arguments = listOf(navArgument("venueId") { type = NavType.StringType })
         ) { backStackEntry ->
             val venueId = backStackEntry.arguments?.getString("venueId") ?: return@composable
-            VenueDetailPlaceholderScreen(venueId = venueId)
+            com.fahed.perupass.feature.screen.detail.VenueDetailScreen(
+                venueId = venueId,
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToPinValidation = { id ->
+                    navController.navigate("pin_validation/$id")
+                }
+            )
+        }
+
+        composable(
+            route = "pin_validation/{venueId}",
+            arguments = listOf(navArgument("venueId") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val venueId = backStackEntry.arguments?.getString("venueId") ?: return@composable
+            // Placeholder for PIN Validation Screen
         }
 
         composable(NavRoutes.EXPLORE) { ExploreScreen() }
