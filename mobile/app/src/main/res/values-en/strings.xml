@@ -54,4 +54,22 @@
     <string name="detail_geofence_in_range">✓ YOU ARE NEARBY — READY TO ACTIVATE</string>
     <string name="detail_activate_button_disabled">Get Closer to Activate (Geofence Active)</string>
     <string name="detail_activate_button_active">ACTIVATE PASS NOW</string>
+
+    <!-- PIN Validation Screen -->
+    <string name="pin_title">ENTER MERCHANT PIN</string>
+    <string name="pin_subtitle">Show this screen to the venue staff</string>
+    <string name="pin_benefit_badge">Gold: Skip Line + 1 Free Drink</string>
+    <string name="pin_cancel">Cancel</string>
+    <string name="pin_backspace_description">Delete digit</string>
+    <string name="pin_shield_description">Shield icon</string>
+    <string name="pin_attempts_remaining">%1$d attempts remaining</string>
+    <string name="pin_blocked_message">Too many attempts. Wait a few seconds.</string>
+    <string name="pin_blocked_countdown">Wait %1$ds...</string>
+
+    <!-- Pass Active Screen -->
+    <string name="pass_title">PASS ACTIVE!</string>
+    <string name="pass_benefit_confirmed">Benefit Confirmed:</string>
+    <string name="pass_valid_for">VALID FOR</string>
+    <string name="pass_remaining_format">%1$d:%2$02d remaining</string>
+    <string name="pass_check_description">Successful validation check</string>
 </resources>
