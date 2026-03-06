@@ -8,11 +8,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.fahed.perupass.feature.screen.auth.LoginScreen
+import com.fahed.perupass.feature.screen.detail.VenueDetailScreen
 import com.fahed.perupass.feature.screen.feed.VibeFeedScreen
 import com.fahed.perupass.feature.screen.placeholder.ExploreScreen
 import com.fahed.perupass.feature.screen.placeholder.PassesScreen
 import com.fahed.perupass.feature.screen.placeholder.ProfileScreen
-import com.fahed.perupass.feature.screen.placeholder.VenueDetailPlaceholderScreen
 
 @Composable
 fun AppNavHost(
@@ -55,7 +55,13 @@ fun AppNavHost(
             arguments = listOf(navArgument("venueId") { type = NavType.StringType })
         ) { backStackEntry ->
             val venueId = backStackEntry.arguments?.getString("venueId") ?: return@composable
-            VenueDetailPlaceholderScreen(venueId = venueId)
+            VenueDetailScreen(
+                venueId = venueId,
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToPinValidation = { id ->
+                    // IMPORTANT: PIN Validation — SPEC-004 (future)
+                }
+            )
         }
 
         composable(NavRoutes.EXPLORE) { ExploreScreen() }

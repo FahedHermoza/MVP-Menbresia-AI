@@ -1,21 +1,19 @@
 package com.fahed.perupass.feature.screen.auth
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.fahed.perupass.domain.usecase.GetCurrentUserUseCase
 import com.fahed.perupass.feature.navigation.NavRoutes
+import com.fahed.perupass.feature.shared.core.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
     private val getCurrentUserUseCase: GetCurrentUserUseCase
-) : ViewModel() {
+) : BaseViewModel() {
 
     private val _startDestination = MutableStateFlow<String?>(null)
     val startDestination: StateFlow<String?> = _startDestination.asStateFlow()
@@ -25,7 +23,7 @@ class SplashViewModel @Inject constructor(
     }
 
     private fun resolveStartDestination() {
-        viewModelScope.launch {
+        launch {
             val isLoggedIn = getCurrentUserUseCase().first() != null
             _startDestination.value = if (isLoggedIn) NavRoutes.FEED else NavRoutes.LOGIN
         }
