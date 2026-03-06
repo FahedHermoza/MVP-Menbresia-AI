@@ -13,6 +13,7 @@ import com.fahed.perupass.feature.screen.feed.VibeFeedScreen
 import com.fahed.perupass.feature.screen.placeholder.ExploreScreen
 import com.fahed.perupass.feature.screen.placeholder.PassesScreen
 import com.fahed.perupass.feature.screen.placeholder.ProfileScreen
+import com.fahed.perupass.feature.screen.validation.PinValidationScreen
 
 @Composable
 fun AppNavHost(
@@ -59,7 +60,21 @@ fun AppNavHost(
                 venueId = venueId,
                 onNavigateBack = { navController.popBackStack() },
                 onNavigateToPinValidation = { id ->
-                    // IMPORTANT: PIN Validation — SPEC-004 (future)
+                    navController.navigate(NavRoutes.pinValidation(id))
+                }
+            )
+        }
+
+        composable(
+            route = NavRoutes.PIN_VALIDATION,
+            arguments = listOf(navArgument("venueId") { type = NavType.StringType })
+        ) {
+            PinValidationScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onNavigateToFeed = {
+                    navController.navigate(NavRoutes.FEED) {
+                        popUpTo(NavRoutes.FEED) { inclusive = true }
+                    }
                 }
             )
         }
@@ -77,6 +92,8 @@ object NavRoutes {
     const val PASSES = "passes"
     const val PROFILE = "profile"
     const val VENUE_DETAIL = "venue/{venueId}"
+    const val PIN_VALIDATION = "validation/{venueId}"
 
     fun venueDetail(venueId: String) = "venue/$venueId"
+    fun pinValidation(venueId: String) = "validation/$venueId"
 }
