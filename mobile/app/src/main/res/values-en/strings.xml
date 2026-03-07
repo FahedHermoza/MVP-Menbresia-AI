@@ -66,6 +66,65 @@
     <string name="pin_blocked_message">Too many attempts. Wait a few seconds.</string>
     <string name="pin_blocked_countdown">Wait %1$ds...</string>
 
+    <!-- Membership Screen -->
+    <string name="membership_header_title">CHOOSE YOUR ACCESS LEVEL</string>
+    <string name="membership_header_subtitle">Unlock exclusive Cusco nightlife benefits</string>
+    <string name="membership_coming_soon">Coming Soon</string>
+
+    <string name="membership_plan_discovery_title">DISCOVERY PASS</string>
+    <string name="membership_plan_discovery_price">S/9.90</string>
+    <string name="membership_plan_discovery_tag">ONE-TIME PAY</string>
+    <string name="membership_plan_discovery_benefit_1">10 Tokens · Explore every venue type</string>
+    <string name="membership_plan_discovery_benefit_2">🍽 Specialty coffee + selected side</string>
+    <string name="membership_plan_discovery_benefit_3">🍹 Signature cocktail or craft beer flight</string>
+    <string name="membership_plan_discovery_benefit_4">🎵 Cover fee + welcome drink included</string>
+
+    <string name="membership_plan_vibe_title">VIBE MEMBER</string>
+    <string name="membership_plan_vibe_price">S/19.90/mo</string>
+    <string name="membership_plan_vibe_tag">MONTHLY SUBSCRIPTION</string>
+    <string name="membership_plan_vibe_badge">1 MONTH FREE TRIAL</string>
+    <string name="membership_plan_vibe_benefit_1">15 Exploration Tokens / month</string>
+    <string name="membership_plan_vibe_benefit_2">🍽 Free appetizer or drink (Mon–Thu)</string>
+    <string name="membership_plan_vibe_benefit_3">🍹 2-for-1 cocktails until 9 PM</string>
+    <string name="membership_plan_vibe_benefit_4">🎵 Free entry ($0 cover) before midnight</string>
+
+    <string name="membership_plan_gold_title">GOLD SELECT</string>
+    <string name="membership_plan_gold_price">S/49.90/mo</string>
+    <string name="membership_plan_gold_tag">MONTHLY SUBSCRIPTION</string>
+    <string name="membership_plan_gold_benefit_1">30 high-value Exploration Tokens / month</string>
+    <string name="membership_plan_gold_benefit_2">☕ Table reservation + free Americano refill</string>
+    <string name="membership_plan_gold_benefit_3">🍹 Flash Tastings + table reserved until 10 PM</string>
+    <string name="membership_plan_gold_benefit_4">🎵 Fast-Pass entry + exclusive bar access</string>
+
+    <string name="membership_plan_black_title">BLACK FOUNDER</string>
+    <string name="membership_plan_black_price">INVITE ONLY</string>
+    <string name="membership_plan_black_tag">INVITE ONLY / ANNUAL</string>
+    <string name="membership_plan_black_badge">APPLICATION REQUIRED</string>
+    <string name="membership_plan_black_benefit_1">Limited-edition beans + private event rates</string>
+    <string name="membership_plan_black_benefit_2">🍽 Chef\'s Table + exclusive tasting dinners</string>
+    <string name="membership_plan_black_benefit_3">🍹 Personal liquor locker + premium glassware</string>
+    <string name="membership_plan_black_benefit_4">🎵 Skip line + VIP concierge access</string>
+
+    <!-- Checkout Screen -->
+    <string name="checkout_title">PAY WITH YAPE/PLIN</string>
+    <string name="checkout_order_label">ORDER CODE</string>
+    <string name="checkout_qr_title">Scan QR to pay</string>
+    <string name="checkout_qr_placeholder">QR Yape/Plin</string>
+    <string name="checkout_phone_number">📱 +51 987 654 321</string>
+    <string name="checkout_instruction_prefix">Make your payment via Yape/Plin and include the code </string>
+    <string name="checkout_instruction_suffix"> in the transfer message</string>
+    <string name="checkout_upload_button">Upload Proof</string>
+    <string name="checkout_confirm_button">CONFIRM PAYMENT</string>
+    <string name="checkout_uploading">Uploading proof…</string>
+    <string name="checkout_proof_description">Payment proof preview</string>
+
+    <!-- Payment Confirmation Screen -->
+    <string name="confirmation_title">Payment Sent!</string>
+    <string name="confirmation_subtitle">Your proof is being reviewed. Your pass will be activated shortly.</string>
+    <string name="confirmation_activated">✓ Your Discovery Pass has been activated</string>
+    <string name="confirmation_go_to_feed">GO TO FEED</string>
+    <string name="confirmation_check_description">Payment confirmed icon</string>
+
     <!-- Pass Active Screen -->
     <string name="pass_title">PASS ACTIVE!</string>
     <string name="pass_benefit_confirmed">Benefit Confirmed:</string>
