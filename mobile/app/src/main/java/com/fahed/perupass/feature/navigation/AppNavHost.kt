@@ -8,10 +8,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.fahed.perupass.feature.screen.auth.LoginScreen
+import com.fahed.perupass.feature.screen.checkout.CheckoutScreen
+import com.fahed.perupass.feature.screen.checkout.PaymentConfirmationScreen
 import com.fahed.perupass.feature.screen.detail.VenueDetailScreen
 import com.fahed.perupass.feature.screen.feed.VibeFeedScreen
+import com.fahed.perupass.feature.screen.membership.MembershipScreen
 import com.fahed.perupass.feature.screen.placeholder.ExploreScreen
-import com.fahed.perupass.feature.screen.placeholder.PassesScreen
 import com.fahed.perupass.feature.screen.placeholder.ProfileScreen
 import com.fahed.perupass.feature.screen.validation.PinValidationScreen
 
@@ -80,8 +82,32 @@ fun AppNavHost(
         }
 
         composable(NavRoutes.EXPLORE) { ExploreScreen() }
-        composable(NavRoutes.PASSES) { PassesScreen() }
+        composable(NavRoutes.PASSES) {
+            MembershipScreen(
+                onNavigateToCheckout = { navController.navigate(NavRoutes.CHECKOUT) }
+            )
+        }
         composable(NavRoutes.PROFILE) { ProfileScreen() }
+
+        composable(NavRoutes.CHECKOUT) {
+            CheckoutScreen(
+                onNavigateToConfirmation = {
+                    navController.navigate(NavRoutes.PAYMENT_CONFIRMATION) {
+                        popUpTo(NavRoutes.CHECKOUT) { inclusive = true }
+                    }
+                }
+            )
+        }
+
+        composable(NavRoutes.PAYMENT_CONFIRMATION) {
+            PaymentConfirmationScreen(
+                onNavigateToFeed = {
+                    navController.navigate(NavRoutes.FEED) {
+                        popUpTo(NavRoutes.FEED) { inclusive = true }
+                    }
+                }
+            )
+        }
     }
 }
 
@@ -91,6 +117,8 @@ object NavRoutes {
     const val EXPLORE = "explore"
     const val PASSES = "passes"
     const val PROFILE = "profile"
+    const val CHECKOUT = "checkout"
+    const val PAYMENT_CONFIRMATION = "payment_confirmation"
     const val VENUE_DETAIL = "venue/{venueId}"
     const val PIN_VALIDATION = "validation/{venueId}"
 
