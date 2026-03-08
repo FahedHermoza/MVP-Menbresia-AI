@@ -16,6 +16,8 @@ El proyecto está organizado en cuatro pilares principales:
 3.  **`/screens`**: Capturas de pantalla y diseños de referencia de la interfaz de usuario.
 4.  **`/ai-tools`**: Herramientas y configuraciones para agentes de IA que asisten en el desarrollo (prompts, flujos y skills).
 
+Para un diagrama visual detallado de la arquitectura técnica (capas, Firebase, flujos), consulta [README-ARCHITECTURE.md](./README-ARCHITECTURE.md).
+
 ---
 
 ## 📋 Funcionalidades del MVP
@@ -32,11 +34,18 @@ Para un desglose detallado de las tareas y el progreso, consulta el [Índice de 
 
 ## 🛠️ Stack Tecnológico
 
-*   **Lenguaje:** Kotlin
-*   **UI:** Jetpack Compose
-*   **Inyección de Dependencias:** (Hilt/Koin - Ver detalle en `mobile/`)
-*   **Networking:** Retrofit / Ktor
-*   **Persistence:** Room / DataStore
+*   **Lenguaje:** Kotlin 2.0.21
+*   **UI:** Jetpack Compose (BOM 2025.02.00) + Material 3
+*   **Arquitectura:** Clean Architecture + MVI (StateFlow / SharedFlow)
+*   **Inyección de Dependencias:** Dagger Hilt 2.53.1
+*   **Navegación:** Navigation Compose 2.8.9
+*   **Backend:** Firebase (Auth · Firestore · Storage) — BOM 33.10.0
+*   **Autenticación:** Firebase Auth + CredentialManager (Google Sign-In)
+*   **Base de Datos:** Cloud Firestore (venues, users, payments, validations)
+*   **Almacenamiento:** Firebase Storage (comprobantes de pago)
+*   **Geolocalización:** FusedLocationProviderClient + Haversine on-device
+*   **Carga de imágenes:** Coil 2.7.0
+*   **Testing:** MockK + Coroutines Test
 
 ---
 
