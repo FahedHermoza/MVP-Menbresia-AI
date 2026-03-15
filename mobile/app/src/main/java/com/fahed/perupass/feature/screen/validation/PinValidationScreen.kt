@@ -28,11 +28,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.fahed.perupass.R
 import com.fahed.perupass.designsystem.MenbresiaColors
+import com.fahed.perupass.domain.model.Venue
 import com.fahed.perupass.feature.screen.validation.component.BenefitBadge
 import com.fahed.perupass.feature.screen.validation.component.BlockedOverlay
 import com.fahed.perupass.feature.screen.validation.component.HandleBar
 import com.fahed.perupass.feature.screen.validation.component.PinIndicatorRow
 import com.fahed.perupass.feature.screen.validation.component.PinKeyboard
+import com.fahed.perupass.feature.screen.validation.model.ProfileHelper.CURRENT_BENEFIT
 
 @Composable
 fun PinValidationScreen(
@@ -41,6 +43,7 @@ fun PinValidationScreen(
     viewModel: PinValidationViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val venue by viewModel.venue.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
         viewModel.sideEffect.collect { effect ->
@@ -67,6 +70,7 @@ fun PinValidationScreen(
             else -> {
                 PinPadContent(
                     state = state,
+                    venue = venue,
                     onIntent = viewModel::onIntent
                 )
             }
@@ -77,6 +81,7 @@ fun PinValidationScreen(
 @Composable
 private fun PinPadContent(
     state: PinValidationUiState,
+    venue: Venue?,
     onIntent: (PinValidationIntent) -> Unit
 ) {
     val isBlocked = state is PinValidationUiState.Blocked
@@ -118,13 +123,13 @@ private fun PinPadContent(
             )
 
             Text(
-                text = stringResource(R.string.pin_subtitle),
+                text = stringResource(R.string.pin_subtitle)+"\n${venue?.name}",
                 color = MenbresiaColors.TextSecondary,
                 fontSize = 13.sp,
                 textAlign = TextAlign.Center
             )
 
-            BenefitBadge()
+            BenefitBadge(benefit = venue?.benefits?.get(CURRENT_BENEFIT).orEmpty())
         }
 
         PinIndicatorRow(

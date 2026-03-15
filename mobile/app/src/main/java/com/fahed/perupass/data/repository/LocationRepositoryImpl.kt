@@ -14,4 +14,10 @@ class LocationRepositoryImpl @Inject constructor(
 
     override fun getCurrentLocation(): Flow<UserLocation> =
         locationDataSource.locationFlow()
+
+    override suspend fun getLastKnownLocation(): UserLocation? =
+        locationDataSource.getLastKnownLocation()
+
+    override suspend fun getLocationOnce(): UserLocation =
+        locationDataSource.getLocationOnce()
 }

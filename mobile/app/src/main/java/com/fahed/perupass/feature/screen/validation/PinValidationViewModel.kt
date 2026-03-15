@@ -2,6 +2,7 @@ package com.fahed.perupass.feature.screen.validation
 
 import androidx.lifecycle.SavedStateHandle
 import com.fahed.perupass.domain.model.ValidationResult
+import com.fahed.perupass.domain.model.Venue
 import com.fahed.perupass.domain.usecase.GetVenueByIdUseCase
 import com.fahed.perupass.domain.usecase.ValidatePinUseCase
 import com.fahed.perupass.feature.shared.core.BaseSideEffectViewModel
@@ -12,6 +13,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
+import com.fahed.perupass.feature.screen.validation.model.ProfileHelper.CURRENT_BENEFIT
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,8 +29,9 @@ class PinValidationViewModel @Inject constructor(
     private val _state = MutableStateFlow<PinValidationUiState>(PinValidationUiState.Idle)
     val state: StateFlow<PinValidationUiState> = _state.asStateFlow()
 
-    private var venueName: String = ""
-    private var benefit: String = ""
+    private val _venue = MutableStateFlow<Venue?>(null)
+    val venue: StateFlow<Venue?> = _venue.asStateFlow()
+
     private var timerJob: Job? = null
 
     init {
@@ -46,9 +49,7 @@ class PinValidationViewModel @Inject constructor(
     private fun loadVenue() {
         launch {
             getVenueByIdUseCase(venueId).onSuccess { venue ->
-                venueName = venue.name
-                // IMPORTANT: hardcoded tier "gold" for MVP — will come from user profile in SPEC-005
-                benefit = venue.benefits["gold"] ?: ""
+                _venue.value = venue
                 _state.value = PinValidationUiState.Idle
             }
         }
@@ -85,7 +86,9 @@ class PinValidationViewModel @Inject constructor(
     private fun validatePin(pin: String) {
         _state.value = PinValidationUiState.Validating
         launch {
-            when (val result = validatePinUseCase(venueId, pin, venueName, benefit)) {
+            val currentVenue = _venue.value ?: return@launch
+            val benefit = currentVenue.benefits[CURRENT_BENEFIT] ?: ""
+            when (val result = validatePinUseCase(venueId, pin, currentVenue.name, benefit)) {
                 is ValidationResult.Success -> {
                     _state.value = PinValidationUiState.Success(result.benefit, result.remainingSeconds)
                     startSuccessTimer(result.remainingSeconds)
