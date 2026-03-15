@@ -22,7 +22,8 @@ import com.fahed.perupass.feature.screen.feed.model.VenueUiModel
 @Composable
 fun VenueCard(
     venue: VenueUiModel,
-    onVenueClicked: (String) -> Unit
+    onVenueClicked: (String) -> Unit,
+    onLocationChipClicked: () -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -56,6 +57,7 @@ fun VenueCard(
             ) {
                 VenueOverlay(
                     venue = venue,
+                    onLocationChipClicked = onLocationChipClicked,
                     modifier = Modifier.weight(1f)
                 )
 

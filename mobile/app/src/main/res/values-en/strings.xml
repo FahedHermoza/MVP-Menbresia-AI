@@ -35,6 +35,17 @@
     <string name="feed_error_loading">Error loading venues. Please try again.</string>
     <string name="feed_empty">No venues available.</string>
 
+    <!-- Location Update Bottom Sheet -->
+    <string name="feed_location_chip_description">Update location</string>
+    <string name="feed_location_update_title">Location Update</string>
+    <string name="feed_location_close_description">Close location panel</string>
+    <string name="feed_location_pin_icon_description">Location icon</string>
+    <string name="feed_location_auto_update_title">Automatic update</string>
+    <string name="feed_location_auto_update_interval">Every 5 minutes</string>
+    <string name="feed_location_description">This app automatically updates your location every 5 minutes to show you the nearest venues. If you need updated results right now, you can request a manual update.</string>
+    <string name="feed_location_refresh_button">Refresh Now</string>
+    <string name="feed_location_refreshing">Updating…</string>
+
     <!-- Placeholder screens -->
     <string name="placeholder_coming_soon">Coming soon</string>
     <string name="placeholder_venue_detail">Venue detail: %1$s</string>

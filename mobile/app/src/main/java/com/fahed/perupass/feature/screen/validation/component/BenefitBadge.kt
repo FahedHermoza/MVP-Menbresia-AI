@@ -13,15 +13,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.fahed.perupass.R
 import com.fahed.perupass.designsystem.MenbresiaColors
 
 @Composable
-fun BenefitBadge() {
+fun BenefitBadge(benefit: String) {
     Surface(
         shape = RoundedCornerShape(20.dp),
         color = MenbresiaColors.Surface,
@@ -39,7 +37,7 @@ fun BenefitBadge() {
                 modifier = Modifier.size(14.dp)
             )
             Text(
-                text = stringResource(R.string.pin_benefit_badge),
+                text = benefit,
                 color = MenbresiaColors.TextPrimary,
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Medium
