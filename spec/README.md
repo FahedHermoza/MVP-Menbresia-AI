@@ -14,6 +14,7 @@ graph LR
     C --> D[SPEC-004<br>PIN Validation]
     A --> E[SPEC-005<br>Payment Checkout]
     E -.->|activa pase| C
+    B --> F[SPEC-006<br>Location Update]
 ```
 
 ---
@@ -27,6 +28,7 @@ graph LR
 | SPEC-003 | **Venue Detail** | [`venue-detail/`](./venue-detail/) | Detalle del local con geofencing y botón de activación | Día 2-3 |
 | SPEC-004 | **PIN Validation** | [`pin-validation/`](./pin-validation/) | Merchant PIN pad + pantalla "PASS ACTIVE!" con countdown | Día 3 |
 | SPEC-005 | **Payment Checkout** | [`payment-checkout/`](./payment-checkout/) | Selección de plan + Checkout Yape/Plin + subida de comprobante | Día 4 |
+| SPEC-006 | **Location Update** | [`location-update/`](./location-update/) | Bottom sheet de actualización manual de ubicación desde el feed | Día 5 |
 
 ---
 
@@ -50,7 +52,11 @@ MVP-MenbresiaAI/spec/
 │   ├── spec.md
 │   ├── plan.md
 │   └── tasks.md
-└── payment-checkout/
+├── payment-checkout/
+│   ├── spec.md
+│   ├── plan.md
+│   └── tasks.md
+└── location-update/
     ├── spec.md
     ├── plan.md
     └── tasks.md
@@ -67,9 +73,10 @@ MVP-MenbresiaAI/spec/
 | SPEC-003 (Venue Detail) | SPEC-002 (navegación desde feed) |
 | SPEC-004 (PIN Validation) | SPEC-003 (navegación desde detalle) |
 | SPEC-005 (Payment Checkout) | SPEC-001 (userId para registro) |
+| SPEC-006 (Location Update) | SPEC-002 (feed renderizado con VenueOverlay) |
 
-> **Nota:** SPEC-005 (Payment) es independiente del flujo Feed → Detail → PIN.  
-> Ambas ramas pueden desarrollarse en paralelo tras completar SPEC-001.
+> **Nota:** SPEC-005 (Payment) es independiente del flujo Feed → Detail → PIN.
+> SPEC-006 (Location Update) es una mejora incremental de SPEC-002 y sus 3 historias pueden desarrollarse en paralelo entre sí.
 
 ---
 

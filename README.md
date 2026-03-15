@@ -29,6 +29,7 @@ Para un desglose detallado de las tareas y el progreso, consulta el [Índice de 
 *   **SPEC-003: Venue Detail** (Detalle del local y activación de beneficios).
 *   **SPEC-004: PIN Validation** (Validación presencial mediante PIN del comercio).
 *   **SPEC-005: Payment Checkout** (Flujo de suscripción con carga de comprobantes).
+*   **SPEC-006: Location Update** (Bottom sheet de actualización manual de ubicación desde el feed).
 
 ---
 
