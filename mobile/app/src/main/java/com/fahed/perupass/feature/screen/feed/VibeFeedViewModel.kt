@@ -1,23 +1,23 @@
 package com.fahed.perupass.feature.screen.feed
 
-import android.annotation.SuppressLint
 import com.fahed.perupass.core.location.HaversineHelper
 import com.fahed.perupass.domain.model.mapper.toUiModel
+import com.fahed.perupass.domain.usecase.GetCurrentLocationUseCase
+import com.fahed.perupass.domain.usecase.GetLastKnownLocationUseCase
 import com.fahed.perupass.domain.usecase.GetVenuesUseCase
 import com.fahed.perupass.feature.shared.core.BaseSideEffectViewModel
-import com.google.android.gms.location.FusedLocationProviderClient
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 @HiltViewModel
 class VibeFeedViewModel @Inject constructor(
     private val getVenuesUseCase: GetVenuesUseCase,
-    private val fusedLocationClient: FusedLocationProviderClient
+    private val getLastKnownLocationUseCase: GetLastKnownLocationUseCase,
+    private val getCurrentLocationUseCase: GetCurrentLocationUseCase
 ) : BaseSideEffectViewModel<FeedSideEffect>() {
 
     private val _state = MutableStateFlow(State())
@@ -36,6 +36,11 @@ class VibeFeedViewModel @Inject constructor(
                 if (event.granted) refreshDistances()
             }
             is Event.PageChanged -> _state.update { it.copy(currentPage = event.page) }
+            is Event.LocationChipClicked -> _state.update { it.copy(showLocationSheet = true) }
+            is Event.LocationBottomSheetDismissed -> _state.update {
+                it.copy(showLocationSheet = false, locationRefreshError = null)
+            }
+            is Event.RefreshLocationRequested -> refreshLocationNow()
         }
     }
 
@@ -54,15 +59,14 @@ class VibeFeedViewModel @Inject constructor(
         }
     }
 
-    @SuppressLint("MissingPermission")
     private fun refreshDistances() {
         launch {
             runCatching {
-                val location = fusedLocationClient.lastLocation.await() ?: return@runCatching
+                val userLocation = getLastKnownLocationUseCase() ?: return@runCatching
                 val updatedVenues = _state.value.domainVenues.map { venue ->
                     val distanceMeters = HaversineHelper.distanceMeters(
-                        lat1 = location.latitude,
-                        lon1 = location.longitude,
+                        lat1 = userLocation.latitude,
+                        lon1 = userLocation.longitude,
                         lat2 = venue.latitude,
                         lon2 = venue.longitude
                     )
@@ -73,4 +77,35 @@ class VibeFeedViewModel @Inject constructor(
         }
     }
 
+    private fun refreshLocationNow() {
+        launch {
+            _state.update { it.copy(isRefreshingLocation = true, locationRefreshError = null) }
+            runCatching {
+                val userLocation = getCurrentLocationUseCase()
+                val updatedVenues = _state.value.domainVenues.map { venue ->
+                    val distanceMeters = HaversineHelper.distanceMeters(
+                        lat1 = userLocation.latitude,
+                        lon1 = userLocation.longitude,
+                        lat2 = venue.latitude,
+                        lon2 = venue.longitude
+                    )
+                    venue.toUiModel(distanceMeters)
+                }
+                _state.update {
+                    it.copy(
+                        venues = updatedVenues,
+                        isRefreshingLocation = false,
+                        showLocationSheet = false
+                    )
+                }
+            }.onFailure { error ->
+                _state.update {
+                    it.copy(
+                        isRefreshingLocation = false,
+                        locationRefreshError = error.message ?: "Error al obtener ubicación"
+                    )
+                }
+            }
+        }
+    }
 }

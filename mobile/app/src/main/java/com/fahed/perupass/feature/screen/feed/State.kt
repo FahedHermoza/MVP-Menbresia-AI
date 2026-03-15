@@ -9,5 +9,8 @@ data class State(
     val domainVenues: List<Venue> = emptyList(),
     val currentPage: Int = 0,
     val error: String? = null,
-    val locationPermissionGranted: Boolean = false
+    val locationPermissionGranted: Boolean = false,
+    val showLocationSheet: Boolean = false,
+    val isRefreshingLocation: Boolean = false,
+    val locationRefreshError: String? = null
 )

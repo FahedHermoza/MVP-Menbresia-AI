@@ -35,6 +35,17 @@
     <string name="feed_error_loading">Error al cargar los locales. Intenta de nuevo.</string>
     <string name="feed_empty">No hay locales disponibles.</string>
 
+    <!-- Location Update Bottom Sheet -->
+    <string name="feed_location_chip_description">Actualizar ubicación</string>
+    <string name="feed_location_update_title">Actualización de Ubicación</string>
+    <string name="feed_location_close_description">Cerrar panel de ubicación</string>
+    <string name="feed_location_pin_icon_description">Icono de ubicación</string>
+    <string name="feed_location_auto_update_title">Actualización automática</string>
+    <string name="feed_location_auto_update_interval">Cada 5 minutos</string>
+    <string name="feed_location_description">Esta app actualiza tu ubicación automáticamente cada 5 minutos para mostrarte los locales más cercanos. Si necesitas ver resultados actualizados ahora mismo, puedes solicitar una actualización manual.</string>
+    <string name="feed_location_refresh_button">Actualizar Ahora</string>
+    <string name="feed_location_refreshing">Actualizando…</string>
+
     <!-- Placeholder screens -->
     <string name="placeholder_coming_soon">Próximamente</string>
     <string name="placeholder_venue_detail">Detalle del local: %1$s</string>

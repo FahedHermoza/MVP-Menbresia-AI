@@ -31,6 +31,7 @@ import com.fahed.perupass.R
 import com.fahed.perupass.designsystem.MenbresiaColors
 import com.fahed.perupass.feature.screen.feed.component.BottomNavBar
 import com.fahed.perupass.feature.screen.feed.component.BottomNavTab
+import com.fahed.perupass.feature.screen.feed.component.LocationUpdateBottomSheet
 import com.fahed.perupass.feature.screen.feed.component.VenueCard
 
 @Composable
@@ -91,8 +92,18 @@ fun VibeFeedScreen(
         VibeFeedContent(
             state = state,
             onVenueClicked = { venueId -> viewModel.onEvent(Event.VenueClicked(venueId)) },
+            onLocationChipClicked = { viewModel.onEvent(Event.LocationChipClicked) },
             onPageChanged = { page -> viewModel.onEvent(Event.PageChanged(page)) },
             modifier = Modifier.padding(bottom = innerPadding.calculateBottomPadding())
+        )
+    }
+
+    if (state.showLocationSheet) {
+        LocationUpdateBottomSheet(
+            isRefreshing = state.isRefreshingLocation,
+            errorMessage = state.locationRefreshError,
+            onDismiss = { viewModel.onEvent(Event.LocationBottomSheetDismissed) },
+            onRefreshRequested = { viewModel.onEvent(Event.RefreshLocationRequested) }
         )
     }
 }
@@ -101,6 +112,7 @@ fun VibeFeedScreen(
 private fun VibeFeedContent(
     state: State,
     onVenueClicked: (String) -> Unit,
+    onLocationChipClicked: () -> Unit,
     onPageChanged: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -142,7 +154,8 @@ private fun VibeFeedContent(
                     val venue = state.venues[page]
                     VenueCard(
                         venue = venue,
-                        onVenueClicked = onVenueClicked
+                        onVenueClicked = onVenueClicked,
+                        onLocationChipClicked = onLocationChipClicked
                     )
                 }
             }
