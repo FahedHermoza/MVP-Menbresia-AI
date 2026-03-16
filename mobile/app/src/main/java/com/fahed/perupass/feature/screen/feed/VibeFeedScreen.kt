@@ -88,7 +88,6 @@ fun VibeFeedScreen(
             )
         }
     ) { innerPadding ->
-        // Only apply bottom padding so the image fills edge-to-edge under the status bar
         VibeFeedContent(
             state = state,
             onVenueClicked = { venueId -> viewModel.onEvent(Event.VenueClicked(venueId)) },
